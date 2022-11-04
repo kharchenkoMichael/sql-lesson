@@ -16,6 +16,8 @@ CREATE TABLE Orders(
 Id INT PRIMARY KEY IDENTITY(1,1),
 UsersId INT,
 GamesId INT,
+FOREIGN KEY (UsersId) REFERENCES Users(Id),
+FOREIGN KEY (GamesId) REFERENCES Games(Id)
 );
 
 INSERT INTO Users
@@ -47,6 +49,11 @@ values
 (4,3),
 (2,2)
 
-Select * From Users
+Select * From Users 
 Select * From Games
 Select * From Orders
+
+Select Users.Name,Games.Name From Users 
+FULL OUTER JOIN Orders on Users.Id = Orders.UsersId
+FULL OUTER JOIN Games on Games.Id = Orders.GamesId
+
