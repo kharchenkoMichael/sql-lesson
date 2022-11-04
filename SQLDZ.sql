@@ -1,5 +1,7 @@
 CREATE DATABASE HomeWork;
+USE HomeWork;
 CREATE TABLE Product (
+ProdutId INT,
 Name NVARCHAR(MAX),
 ProductNumber NVARCHAR(MAX),
 Cost Money,
@@ -24,10 +26,11 @@ SELECT Name,ProductNumber,Cost,Count,SellStartDate From Product
 where Count > 59
 
 SELECT Name,ProductNumber,Cost,Count,SellStartDate From Product
-where cost > 3
-SELECT Name,ProductNumber,Cost,Count,SellStartDate From Product
-where SellStartDate >= '2011-08-20'
+where cost > 3 AND SellStartDate >= '08/20/2011'
 
 UPDATE Product
 SET Cost = '5.25'
 where Name = 'Svitoch'
+
+
+SELECT * From Product
