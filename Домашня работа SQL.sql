@@ -53,14 +53,15 @@ values
 
 
 
-Select Phone,City From UserCompany
-JOIN PasportUser on UserCompany.Name = PasportUser.Name
+Select Phone From UserCompany
+where UserCompany.Name in (select Name from PasportUser where City like 'K%')
 
+
+
+
+Select Name From PasportUser
+where DateOfBirth in (select Max(DateOfBirth) from PasportUser)
 
 Select DateOfBirth From PasportUser
-where FamilyStatus like 'Not married'
+where Name in (select Name from SalaryUser where Rank like 'Manager')
 
-Select DateOfBirth,Phone,Rank From PasportUser
-JOIN UserCompany on UserCompany.Name = PasportUser.Name
-JOIN SalaryUser on SalaryUser.Name = UserCompany.Name
-where SalaryUser.Rank like 'Manager'
