@@ -1,0 +1,31 @@
+CREATE DATABASE ProjectLesson;
+USE ProjectLesson;
+
+CREATE TABLE Users(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Name NVARCHAR(20),
+LastName NVARCHAR(20),
+Phone NVARCHAR(20),
+Password NVARCHAR(50),
+IsAdmin BIT
+);
+
+
+CREATE TABLE Procedurs(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Name NVARCHAR(30),
+Price MONEY,
+Time Time
+);
+
+
+CREATE TABLE Records(
+Id INT PRIMARY KEY IDENTITY(1,1),
+UserId INT,
+ProcedurId INT,
+DateTime DateTime2,
+FOREIGN KEY (UserId) REFERENCES Users(Id),
+FOREIGN KEY (UserId) REFERENCES Procedurs(Id)
+);
+
+
